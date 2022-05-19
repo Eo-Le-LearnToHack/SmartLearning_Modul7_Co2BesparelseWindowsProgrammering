@@ -37,10 +37,33 @@ namespace Co2BesparelseWindows
 
             // Skriv din kode her. Start med at indsætte nøgleværdierne
             // fra opgaven
-            var koordinatNogle = "";
-            var afstandNogle = "";
+            string koordinatNogle = "fMp5hPFGhG3uCJadnXblIqkE51gi4pildnQ/HYniTwjpssyVbOw0MA==";
+            string afstandNogle = "bEP239aWrJmPPUsOWnOgv567LCC4tXEi4LtXgj3nEfgmFpKPj/uTMw==";
 
-            MessageBox.Show($"Du kan spare 0 kg CO2 ved ikke at foretage den rejse", "Besparelse");
+            Afstandsberegner minAfstand = new(afstandNogle);
+            Koordinatberegner mitStartkoordinat = new(koordinatNogle);
+            Koordinatberegner mitSlutkoordinat = new(koordinatNogle);
+
+            var startKoordinat = await mitStartkoordinat.HentKoordinaterForAdresse(startadresse);
+            var slutKoordinat = await mitSlutkoordinat.HentKoordinaterForAdresse(slutadresse);
+            double rejseAfstandIMeter = await minAfstand.BeregnAfstandIMeter(startKoordinat, slutKoordinat);
+            double rejseAfstandIKilometer = rejseAfstandIMeter / 1000;
+            double Co2BesparelseIKilogram;
+
+            if (benzinBil is true)
+            {
+                Co2BesparelseIKilogram = 2 * 174 * rejseAfstandIKilometer / 1000;
+            }
+            else if (dieselBil is true)
+            {
+                Co2BesparelseIKilogram = 2 * 168 * rejseAfstandIKilometer / 1000;
+            }
+            else
+            {
+                Co2BesparelseIKilogram = 2 * 36 * rejseAfstandIKilometer / 1000;
+            }
+
+            MessageBox.Show($"Du kan spare {Co2BesparelseIKilogram:f2} kg CO2 ved ikke at foretage den rejse (tur/retur)", "Besparelse");
         }
     }
 }
