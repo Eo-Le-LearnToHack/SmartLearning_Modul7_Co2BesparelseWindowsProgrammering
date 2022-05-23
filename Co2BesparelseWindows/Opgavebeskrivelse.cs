@@ -40,8 +40,8 @@ Hver af de to beregnere skal bruge en nøgle, som giver adgang til den bagvedlig
 
 Det er disse to:
 
-var koordinatNogle = "fMp5hPFGhG3uCJadnXblIqkE51gi4pildnQ/HYniTwjpssyVbOw0MA==";
-var afstandNogle = "bEP239aWrJmPPUsOWnOgv567LCC4tXEi4LtXgj3nEfgmFpKPj/uTMw==";
+var koordinatNogle = ""; //Nøgleværdien findes på smartlearning
+var afstandNogle = ""; //Nøgleværdien findes på smartlearning
 Når du kalder metoder i de to beregnerklasser skal du skrive await foran. Det skyldes, at metoderne kalder services på nettet, og din kode skal vente på at få svaret tilbage.
 
 Eksempelvis således:

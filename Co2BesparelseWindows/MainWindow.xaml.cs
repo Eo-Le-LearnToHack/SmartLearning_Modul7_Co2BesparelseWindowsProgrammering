@@ -37,8 +37,8 @@ namespace Co2BesparelseWindows
 
             // Skriv din kode her. Start med at indsætte nøgleværdierne
             // fra opgaven
-            string koordinatNogle = "fMp5hPFGhG3uCJadnXblIqkE51gi4pildnQ/HYniTwjpssyVbOw0MA==";
-            string afstandNogle = "bEP239aWrJmPPUsOWnOgv567LCC4tXEi4LtXgj3nEfgmFpKPj/uTMw==";
+            string koordinatNogle = ""; //Nøgleværdien findes på smartlearning
+            string afstandNogle = ""; //Nøgleværdien findes på smartlearning
 
             Afstandsberegner minAfstand = new(afstandNogle);
             Koordinatberegner mitStartkoordinat = new(koordinatNogle);
